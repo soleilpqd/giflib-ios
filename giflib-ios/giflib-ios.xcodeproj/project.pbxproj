@@ -1,0 +1,337 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		885BD8751648BBBE00F182B4 /* GifDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 885BD8741648BBBE00F182B4 /* GifDecode.m */; };
+		885BD8771648BDFB00F182B4 /* GifDecode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 885BD8731648BBBE00F182B4 /* GifDecode.h */; };
+		885BD8851648FCCA00F182B4 /* GifPlayback.m in Sources */ = {isa = PBXBuildFile; fileRef = 885BD8841648FCCA00F182B4 /* GifPlayback.m */; };
+		885BD8861648FCDD00F182B4 /* GifPlayback.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 885BD8831648FCCA00F182B4 /* GifPlayback.h */; };
+		88765F60163787E30011D31E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88765F5F163787E30011D31E /* Foundation.framework */; };
+		88765F65163787E40011D31E /* giflib_ios.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88765F64163787E40011D31E /* giflib_ios.h */; };
+		88765F67163787E40011D31E /* giflib_ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 88765F66163787E40011D31E /* giflib_ios.m */; };
+		88765F76163788410011D31E /* dgif_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 88765F6D163788410011D31E /* dgif_lib.c */; };
+		88765F77163788410011D31E /* egif_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 88765F6E163788410011D31E /* egif_lib.c */; };
+		88765F78163788410011D31E /* gif_err.c in Sources */ = {isa = PBXBuildFile; fileRef = 88765F6F163788410011D31E /* gif_err.c */; };
+		88765F79163788410011D31E /* gif_font.c in Sources */ = {isa = PBXBuildFile; fileRef = 88765F70163788410011D31E /* gif_font.c */; };
+		88765F7A163788410011D31E /* gif_hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 88765F71163788410011D31E /* gif_hash.c */; };
+		88765F7B163788410011D31E /* gifalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 88765F75163788410011D31E /* gifalloc.c */; };
+		88765F7C163788B50011D31E /* gif_lib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88765F74163788410011D31E /* gif_lib.h */; };
+		88765FE31637D9C50011D31E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88765FE21637D9C50011D31E /* UIKit.framework */; };
+		88B846411647522E0005FF5A /* neuquant32.c in Sources */ = {isa = PBXBuildFile; fileRef = 88B8463F1647522E0005FF5A /* neuquant32.c */; };
+		88B846451647BE500005FF5A /* GifEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B846441647BE500005FF5A /* GifEncode.m */; };
+		88B846461647CDDE0005FF5A /* GifEncode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88B846431647BE500005FF5A /* GifEncode.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88765F5A163787E30011D31E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include/giflib;
+			dstSubfolderSpec = 16;
+			files = (
+				885BD8861648FCDD00F182B4 /* GifPlayback.h in CopyFiles */,
+				885BD8771648BDFB00F182B4 /* GifDecode.h in CopyFiles */,
+				88B846461647CDDE0005FF5A /* GifEncode.h in CopyFiles */,
+				88765F7C163788B50011D31E /* gif_lib.h in CopyFiles */,
+				88765F65163787E40011D31E /* giflib_ios.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		885BD8731648BBBE00F182B4 /* GifDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifDecode.h; sourceTree = "<group>"; };
+		885BD8741648BBBE00F182B4 /* GifDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifDecode.m; sourceTree = "<group>"; };
+		885BD8831648FCCA00F182B4 /* GifPlayback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifPlayback.h; sourceTree = "<group>"; };
+		885BD8841648FCCA00F182B4 /* GifPlayback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifPlayback.m; sourceTree = "<group>"; };
+		88765F5C163787E30011D31E /* giflib-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "giflib-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88765F5F163787E30011D31E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		88765F63163787E30011D31E /* giflib-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "giflib-ios-Prefix.pch"; sourceTree = "<group>"; };
+		88765F64163787E40011D31E /* giflib_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = giflib_ios.h; sourceTree = "<group>"; };
+		88765F66163787E40011D31E /* giflib_ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = giflib_ios.m; sourceTree = "<group>"; };
+		88765F6D163788410011D31E /* dgif_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dgif_lib.c; sourceTree = "<group>"; };
+		88765F6E163788410011D31E /* egif_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = egif_lib.c; sourceTree = "<group>"; };
+		88765F6F163788410011D31E /* gif_err.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_err.c; sourceTree = "<group>"; };
+		88765F70163788410011D31E /* gif_font.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_font.c; sourceTree = "<group>"; };
+		88765F71163788410011D31E /* gif_hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_hash.c; sourceTree = "<group>"; };
+		88765F72163788410011D31E /* gif_hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_hash.h; sourceTree = "<group>"; };
+		88765F73163788410011D31E /* gif_lib_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_lib_private.h; sourceTree = "<group>"; };
+		88765F74163788410011D31E /* gif_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_lib.h; sourceTree = "<group>"; };
+		88765F75163788410011D31E /* gifalloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gifalloc.c; sourceTree = "<group>"; };
+		88765FE21637D9C50011D31E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		88B8463F1647522E0005FF5A /* neuquant32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = neuquant32.c; sourceTree = "<group>"; };
+		88B846401647522E0005FF5A /* neuquant32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = neuquant32.h; sourceTree = "<group>"; };
+		88B846431647BE500005FF5A /* GifEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifEncode.h; sourceTree = "<group>"; };
+		88B846441647BE500005FF5A /* GifEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifEncode.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88765F59163787E30011D31E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88765FE31637D9C50011D31E /* UIKit.framework in Frameworks */,
+				88765F60163787E30011D31E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		885BD8801648CE4600F182B4 /* gif_lib */ = {
+			isa = PBXGroup;
+			children = (
+				88765F6D163788410011D31E /* dgif_lib.c */,
+				88765F6E163788410011D31E /* egif_lib.c */,
+				88765F6F163788410011D31E /* gif_err.c */,
+				88765F70163788410011D31E /* gif_font.c */,
+				88765F71163788410011D31E /* gif_hash.c */,
+				88765F72163788410011D31E /* gif_hash.h */,
+				88765F73163788410011D31E /* gif_lib_private.h */,
+				88765F74163788410011D31E /* gif_lib.h */,
+				88765F75163788410011D31E /* gifalloc.c */,
+			);
+			name = gif_lib;
+			sourceTree = "<group>";
+		};
+		885BD8811648CE7300F182B4 /* Decode */ = {
+			isa = PBXGroup;
+			children = (
+				88765F64163787E40011D31E /* giflib_ios.h */,
+				88765F66163787E40011D31E /* giflib_ios.m */,
+				885BD8731648BBBE00F182B4 /* GifDecode.h */,
+				885BD8741648BBBE00F182B4 /* GifDecode.m */,
+				885BD8831648FCCA00F182B4 /* GifPlayback.h */,
+				885BD8841648FCCA00F182B4 /* GifPlayback.m */,
+			);
+			name = Decode;
+			sourceTree = "<group>";
+		};
+		885BD8821648CE7C00F182B4 /* Encode */ = {
+			isa = PBXGroup;
+			children = (
+				88B846401647522E0005FF5A /* neuquant32.h */,
+				88B8463F1647522E0005FF5A /* neuquant32.c */,
+				88B846431647BE500005FF5A /* GifEncode.h */,
+				88B846441647BE500005FF5A /* GifEncode.m */,
+			);
+			name = Encode;
+			sourceTree = "<group>";
+		};
+		88765F51163787E30011D31E = {
+			isa = PBXGroup;
+			children = (
+				88765F61163787E30011D31E /* giflib-ios */,
+				88765F5E163787E30011D31E /* Frameworks */,
+				88765F5D163787E30011D31E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88765F5D163787E30011D31E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88765F5C163787E30011D31E /* giflib-ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88765F5E163787E30011D31E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88765FE21637D9C50011D31E /* UIKit.framework */,
+				88765F5F163787E30011D31E /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88765F61163787E30011D31E /* giflib-ios */ = {
+			isa = PBXGroup;
+			children = (
+				885BD8801648CE4600F182B4 /* gif_lib */,
+				885BD8811648CE7300F182B4 /* Decode */,
+				885BD8821648CE7C00F182B4 /* Encode */,
+				88765F62163787E30011D31E /* Supporting Files */,
+			);
+			path = "giflib-ios";
+			sourceTree = "<group>";
+		};
+		88765F62163787E30011D31E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88765F63163787E30011D31E /* giflib-ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88765F5B163787E30011D31E /* giflib-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88765F6A163787E40011D31E /* Build configuration list for PBXNativeTarget "giflib-ios" */;
+			buildPhases = (
+				88765F58163787E30011D31E /* Sources */,
+				88765F59163787E30011D31E /* Frameworks */,
+				88765F5A163787E30011D31E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "giflib-ios";
+			productName = "giflib-ios";
+			productReference = 88765F5C163787E30011D31E /* giflib-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88765F53163787E30011D31E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "GMO RunSystem";
+			};
+			buildConfigurationList = 88765F56163787E30011D31E /* Build configuration list for PBXProject "giflib-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 88765F51163787E30011D31E;
+			productRefGroup = 88765F5D163787E30011D31E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88765F5B163787E30011D31E /* giflib-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88765F58163787E30011D31E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88765F67163787E40011D31E /* giflib_ios.m in Sources */,
+				88765F76163788410011D31E /* dgif_lib.c in Sources */,
+				88765F77163788410011D31E /* egif_lib.c in Sources */,
+				88765F78163788410011D31E /* gif_err.c in Sources */,
+				88765F79163788410011D31E /* gif_font.c in Sources */,
+				88765F7A163788410011D31E /* gif_hash.c in Sources */,
+				88765F7B163788410011D31E /* gifalloc.c in Sources */,
+				88B846411647522E0005FF5A /* neuquant32.c in Sources */,
+				88B846451647BE500005FF5A /* GifEncode.m in Sources */,
+				885BD8751648BBBE00F182B4 /* GifDecode.m in Sources */,
+				885BD8851648FCCA00F182B4 /* GifPlayback.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		88765F68163787E40011D31E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
+				PUBLIC_HEADERS_FOLDER_PATH = include/giflib;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		88765F69163787E40011D31E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
+				PUBLIC_HEADERS_FOLDER_PATH = include/giflib;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88765F6B163787E40011D31E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/giflib_ios.dst;
+				EXECUTABLE_PREFIX = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "giflib-ios/giflib-ios-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		88765F6C163787E40011D31E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/giflib_ios.dst;
+				EXECUTABLE_PREFIX = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "giflib-ios/giflib-ios-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88765F56163787E30011D31E /* Build configuration list for PBXProject "giflib-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88765F68163787E40011D31E /* Debug */,
+				88765F69163787E40011D31E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88765F6A163787E40011D31E /* Build configuration list for PBXNativeTarget "giflib-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88765F6B163787E40011D31E /* Debug */,
+				88765F6C163787E40011D31E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88765F53163787E30011D31E /* Project object */;
+}
