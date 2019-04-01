@@ -78,6 +78,33 @@
 
 // Render 1 time
 
+-( void )showGifResult:( NSArray* )data {
+    NSArray *arr = [ data firstObject ];
+    NSDictionary *dic = [ data lastObject ];
+    _imageView.image = [ arr objectAtIndex:0 ];
+    if ( arr.count > 1 ) {
+        _imageView.animationImages = arr;
+        _imageView.animationRepeatCount = [[ dic objectForKey:kGifInfoLoopCount ] intValue ];
+        _imageView.animationDuration = [[ dic objectForKey:kGifInfoAnimationDuration ] intValue ] / 100.0;
+        if ( _imageView.animationDuration == 0 ) _imageView.animationDuration = 0.1 * arr.count;
+        [ _imageView startAnimating ];
+        //            for ( int i = 0; i < arr.count; i++ ) {
+        //                UIImage *img = [ arr objectAtIndex:i ];
+        //                NSData *data = UIImagePNGRepresentation( img );
+        //                [ data writeToFile:[ NSHomeDirectory() stringByAppendingFormat:@"/Library/Caches/%i.png", i ]
+        //                        atomically:YES ];
+        //            }
+    }
+    if ( _imageView.image.size.width > _imageView.bounds.size.width ||
+        _imageView.image.size.height > _imageView.bounds.size.height )
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+    _imageSize = _imageView.image.size;
+    _frameCount = arr.count;
+    _animDuration = _imageView.animationDuration;
+    [ _indicator stopAnimating ];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+}
+
 - ( void )internalLoadGif:( NSString* )gifPath {
     NSAutoreleasePool *pool = [[ NSAutoreleasePool alloc ] init ];
     NSMutableArray *arr = [[ NSMutableArray alloc ] init ];
@@ -87,28 +114,7 @@
                                         storeInfo:dic
                                 separateFrameOnly:NO ];
     if ( _error == 0) {
-        _imageView.image = [ arr objectAtIndex:0 ];
-        if ( arr.count > 1 ) {
-            _imageView.animationImages = arr;
-            _imageView.animationRepeatCount = [[ dic objectForKey:kGifInfoLoopCount ] intValue ];
-            _imageView.animationDuration = [[ dic objectForKey:kGifInfoAnimationDuration ] intValue ] / 100.0;
-            if ( _imageView.animationDuration == 0 ) _imageView.animationDuration = 0.1 * arr.count;
-            [ _imageView startAnimating ];
-//            for ( int i = 0; i < arr.count; i++ ) {
-//                UIImage *img = [ arr objectAtIndex:i ];
-//                NSData *data = UIImagePNGRepresentation( img );
-//                [ data writeToFile:[ NSHomeDirectory() stringByAppendingFormat:@"/Library/Caches/%i.png", i ]
-//                        atomically:YES ];
-//            }
-        }
-        if ( _imageView.image.size.width > _imageView.bounds.size.width ||
-            _imageView.image.size.height > _imageView.bounds.size.height )
-            _imageView.contentMode = UIViewContentModeScaleAspectFit;
-        _imageSize = _imageView.image.size;
-        _frameCount = arr.count;
-        _animDuration = _imageView.animationDuration;
-        [ _indicator stopAnimating ];
-        self.navigationItem.rightBarButtonItem.enabled = YES;
+        [ self performSelectorOnMainThread:@selector( showGifResult: ) withObject:@[ arr, dic ] waitUntilDone:YES ];
     } else {
         [ self performSelectorOnMainThread:@selector( showError ) withObject:nil waitUntilDone:NO ];
     }

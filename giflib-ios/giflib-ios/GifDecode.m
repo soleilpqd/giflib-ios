@@ -55,6 +55,33 @@ void renderGifRow( PixelRGBA *contextBuffer, GifRowType rowBuffer,
     }
 }
 
+void resetRowToBackground( PixelRGBA *contextBuffer, GifFileType *gifFile, int rowNum, int transFlag, int transIndex ) {
+    int colNum = gifFile->Image.Left;
+    int width = gifFile->Image.Width;
+    // Spec tells that in DISPOSE_BACKGROUND mode, we should clear to the background color
+    // but in reality, we have to clear to transparent.
+//    ColorMapObject *colorMap = ( gifFile->Image.ColorMap ? gifFile->Image.ColorMap : gifFile->SColorMap );
+//    int bkgColorIndex = gifFile->SBackGroundColor;
+//    if ( transFlag != 0 && bkgColorIndex == transIndex ) {
+        for ( int i = colNum; i < colNum + width; i++ ) {
+            int pixIndex = rowNum * gifFile->SWidth + i;
+            contextBuffer[pixIndex].red = 0;
+            contextBuffer[pixIndex].green = 0;
+            contextBuffer[pixIndex].blue = 0;
+            contextBuffer[pixIndex].alpha = 0;
+        }
+//    } else {
+//        GifColorType *colorMapEntry = &colorMap->Colors[bkgColorIndex];
+//        for ( int i = colNum; i < colNum + width; i++ ) {
+//            int pixIndex = rowNum * gifFile->SWidth + i;
+//            contextBuffer[pixIndex].red = colorMapEntry->Red;
+//            contextBuffer[pixIndex].green = colorMapEntry->Green;
+//            contextBuffer[pixIndex].blue = colorMapEntry->Blue;
+//            contextBuffer[pixIndex].alpha = 0xff;
+//        }
+//    }
+}
+
 int renderGifFrame( GifFileType *gifFile, GifRowType rowBuffer,
                    CGContextRef context, PixelRGBA *contextBuffer,
                    GraphicsControlBlock gcb,
@@ -75,6 +102,7 @@ int renderGifFrame( GifFileType *gifFile, GifRowType rowBuffer,
     int col = gifFile->Image.Left;
     int width = gifFile->Image.Width;
     int height = gifFile->Image.Height;
+//    printf("\tPOS: %d %d %d %d. Mode: %d\n", row, col, width, height, gcb.DisposalMode);
     if ( gifFile->Image.Left + gifFile->Image.Width > gifFile->SWidth ||
         gifFile->Image.Top + gifFile->Image.Height > gifFile->SHeight)
         return GIF_ERROR_FRAME_BOUNDS;
@@ -116,7 +144,19 @@ int renderGifFrame( GifFileType *gifFile, GifRowType rowBuffer,
     *image = CGBitmapContextCreateImage( context );
     switch ( gcb.DisposalMode ) {
         case DISPOSE_BACKGROUND:
-            memset( contextBuffer, 0, bufferSize );
+            if ( gifFile->Image.Interlace ) {
+                for ( int i = 0; i < 4; i++ ) {
+                    for ( int j = row + InterlacedOffset[i]; j < row + height; j += InterlacedJumps[i] ) {
+                        resetRowToBackground( contextBuffer, gifFile, j, transFlag, transIndex );
+                    }
+                }
+            } else {
+                int row = gifFile->Image.Top;
+                for ( int i = 0; i < height; i++ ) {
+                    resetRowToBackground( contextBuffer, gifFile, row, transFlag, transIndex );
+                    row +=1;
+                }
+            }
             break;
         case DISPOSE_PREVIOUS:
             memcpy( contextBuffer, tmp, bufferSize );
@@ -153,7 +193,8 @@ int renderGifFile( NSString *path, NSMutableArray *frames, NSMutableDictionary *
     for ( int i = 0; i < gifFile->SWidth; i++ ) {
         rowBuffer[i] = gifFile->SBackGroundColor;
     }
-    
+//    NSLog(@"%s: %@ %@x%@", __FUNCTION__, path, @(gifFile->SWidth), @(gifFile->SHeight));
+
     GifRecordType recordType;
     int frameIndex = 0;
     GraphicsControlBlock gcb;
@@ -224,6 +265,7 @@ int renderGifFile( NSString *path, NSMutableArray *frames, NSMutableDictionary *
             case IMAGE_DESC_RECORD_TYPE:
             {
                 CGImageRef image = NULL;
+//                printf("Frame: %d\n", frameIndex);
                 errorCode = renderGifFrame( gifFile, rowBuffer, context, contextBuffer, gcb, &image );
                 if ( errorCode )
                     goto close_context;

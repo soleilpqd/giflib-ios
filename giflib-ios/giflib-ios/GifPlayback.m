@@ -85,9 +85,13 @@
         }
     }
     if ([ _monitor respondsToSelector:@selector( setImage: )]) {
-        [ _monitor setImage:[ _frames objectAtIndex:_currentFrame ]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [ _monitor setImage:[ _frames objectAtIndex:_currentFrame ]];
+        });
     } else if ([ _monitor respondsToSelector:@selector( gifPlayback:setImage: )]) {
-        [ _monitor gifPlayback:self setImage:[ _frames objectAtIndex:_currentFrame ]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [ _monitor gifPlayback:self setImage:[ _frames objectAtIndex:_currentFrame ]];
+        });
     } else {
         [ NSException raise:@"GIF Playback Error" format:@"Monitor not respond to set image method" ];
     }
@@ -114,21 +118,30 @@
         for ( NSNumber *num in _framesDelay ) {
             t += [ num intValue ];
         }
-        if ([ _monitor respondsToSelector:@selector( gifPlaybackloadLoadGifFileDone:framesCount:totalAnimationDuration: )])
-            [ _monitor gifPlaybackloadLoadGifFileDone:self framesCount:_frames.count totalAnimationDuration:t / 100.0 ];
+        if ([ _monitor respondsToSelector:@selector( gifPlaybackloadLoadGifFileDone:framesCount:totalAnimationDuration: )]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ _monitor gifPlaybackloadLoadGifFileDone:self framesCount:_frames.count totalAnimationDuration:t / 100.0 ];
+            });
+        }
         if ( _waitForNextFrame )
             [ self nextFrame ];
     } else {
         _isRunning = NO;
-        if ([ _monitor respondsToSelector:@selector( gifPlaybackError:error: )])
-            [ _monitor gifPlaybackError:self error:res ];
+        if ([ _monitor respondsToSelector:@selector( gifPlaybackError:error: )]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ _monitor gifPlaybackError:self error:res ];
+            });
+        }
     }
     [ pool release ];
 }
 
 - ( void )setImageSize:(NSValue *)imageSize {
-    if ([ _monitor respondsToSelector:@selector( gifPlayback:setImageSize: )])
-        [ _monitor gifPlayback:self setImageSize:[ imageSize CGSizeValue ]];
+    if ([ _monitor respondsToSelector:@selector( gifPlayback:setImageSize: )]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [ _monitor gifPlayback:self setImageSize:[ imageSize CGSizeValue ]];
+        });
+    }
 }
 
 - ( void )setGifFrame:(NSDictionary *)frameInfo {
